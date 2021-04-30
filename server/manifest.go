@@ -12,26 +12,37 @@ var manifest *model.Manifest
 
 const manifestStr = `
 {
-  "id": "com.mattermost.plugin-starter-template",
-  "name": "Plugin Starter Template",
-  "description": "This plugin serves as a starting point for writing a Mattermost plugin.",
+  "id": "com.mattermost.matterless-plugin",
+  "name": "Matterless plugin",
+  "description": "This plugin hosts Matterless as a Mattermost plugin",
+  "homepage_url": "https://github.com/zefhemel/mattermost-matterless-plugin",
+  "support_url": "https://github.com/zefhemel/mattermost-matterless-plugin/issues",
+  "release_notes_url": "https://github.com/zefhemel/mattermost-matterless-plugin/releases",
+  "icon_path": "assets/starter-template-icon.svg",
   "version": "0.1.0",
   "min_server_version": "5.12.0",
   "server": {
     "executables": {
-      "linux-amd64": "server/dist/plugin-linux-amd64",
       "darwin-amd64": "server/dist/plugin-darwin-amd64",
-      "windows-amd64": "server/dist/plugin-windows-amd64.exe"
+      "darwin-arm64": "server/dist/plugin-darwin-arm64",
+      "linux-amd64": "server/dist/plugin-linux-amd64",
+      "windows-amd64": ""
     },
     "executable": ""
   },
-  "webapp": {
-    "bundle_path": "webapp/dist/main.js"
-  },
   "settings_schema": {
-    "header": "",
+    "header": "Matterless",
     "footer": "",
-    "settings": []
+    "settings": [
+      {
+        "key": "DataDir",
+        "display_name": "Data directory:",
+        "type": "text",
+        "help_text": "The path to the folder to keep state",
+        "placeholder": "",
+        "default": "./mls-data"
+      }
+    ]
   }
 }
 `
